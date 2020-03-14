@@ -1,0 +1,545 @@
+TESTED : "%d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%d", INT32_MIN
+printf :    |-2147483648	Return: 11
+ft_printf : |herehere-2147483648	Return: 11
+
+TESTED : "%d", INT32_MAX + 95
+printf :    |-2147483554	Return: 11
+ft_printf : |herehere-2147483554	Return: 11
+
+TESTED : "a%da", 100
+printf :    |a100a	Return: 5
+ft_printf : |aherehere100a	Return: 5
+
+TESTED : "a%da", INT32_MIN
+printf :    |a-2147483648a	Return: 13
+ft_printf : |aherehere-2147483648a	Return: 13
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%x", 0
+printf :    |0	Return: 1
+ft_printf : |	Return: 0
+
+TESTED : "a%xa", 0
+printf :    |a0a	Return: 3
+ft_printf : |aa	Return: 2
+
+TESTED : "%X", 100
+printf :    |64	Return: 2
+ft_printf : |	Return: 0
+
+TESTED : "%X", UINT32_MAX
+printf :    |FFFFFFFF	Return: 8
+ft_printf : |	Return: 0
+
+TESTED : "%X", UINT32_MAX + 95
+printf :    |5E	Return: 2
+ft_printf : |	Return: 0
+
+TESTED : "%X", 0
+printf :    |0	Return: 1
+ft_printf : |	Return: 0
+
+TESTED : "a%Xa", 100
+printf :    |a64a	Return: 4
+ft_printf : |aa	Return: 2
+
+TESTED : "a%Xa", UINT32_MAX
+printf :    |aFFFFFFFFa	Return: 10
+ft_printf : |aa	Return: 2
+
+TESTED : "a%Xa", 0
+printf :    |a0a	Return: 3
+ft_printf : |aa	Return: 2
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%p", (void *)0x100
+printf :    |0x100	Return: 5
+ft_printf : |	Return: 0
+
+TESTED : "%p", (void *)UINT64_MAX
+printf :    |0xffffffffffffffff	Return: 18
+ft_printf : |	Return: 0
+
+TESTED : "%p", (void *)0x0
+printf :    |0x0	Return: 3
+ft_printf : |	Return: 0
+
+TESTED : "a%pa", (void *)0x100
+printf :    |a0x100a	Return: 7
+ft_printf : |aa	Return: 2
+
+TESTED : "a%pa", (void *)UINT64_MAX
+printf :    |a0xffffffffffffffffa	Return: 20
+ft_printf : |aa	Return: 2
+
+TESTED : "a%pa", (void *)0
+printf :    |a0x0a	Return: 5
+ft_printf : |aa	Return: 2
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%2d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%3d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "a%3da", 100
+printf :    |a100a	Return: 5
+ft_printf : |aherehere100a	Return: 5
+
+TESTED : "%4d", 100
+printf :    | 100	Return: 4
+ft_printf : |herehere 100	Return: 4
+
+TESTED : "%2d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-100	Return: 4
+
+TESTED : "%3d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-100	Return: 4
+
+TESTED : "%4d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-100	Return: 4
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%2p", (void *)100
+printf :    |0x64	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "%3p", (void *)100
+printf :    |0x64	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "%4p", (void *)100
+printf :    |0x64	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "a%4pa", (void *)100
+printf :    |a0x64a	Return: 6
+ft_printf : |aa	Return: 2
+
+TESTED : "%6p", (void *)100
+printf :    |  0x64	Return: 6
+ft_printf : |	Return: 0
+
+TESTED : "%4p", (void *)0x0
+printf :    | 0x0	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "%1p", (void *)0x0
+printf :    |0x0	Return: 3
+ft_printf : |	Return: 0
+
+TESTED : "a%1pa", (void *)0x0
+printf :    |a0x0a	Return: 5
+ft_printf : |aa	Return: 2
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%-2d", 100
+printf :    |100	Return: 3
+ft_printf : |here100here	Return: 3
+
+TESTED : "%-3d", 100
+printf :    |100	Return: 3
+ft_printf : |here100here	Return: 3
+
+TESTED : "a%-3da", 100
+printf :    |a100a	Return: 5
+ft_printf : |ahere100herea	Return: 5
+
+TESTED : "%-4d", 100
+printf :    |100 	Return: 4
+ft_printf : |here100here 	Return: 4
+
+TESTED : "%-2d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-100here	Return: 4
+
+TESTED : "%-3d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-100here	Return: 4
+
+TESTED : "%-4d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-100here	Return: 4
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%-2p", (void *)100
+printf :    |0x64	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "%-3p", (void *)100
+printf :    |0x64	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "%-4p", (void *)100
+printf :    |0x64	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "a%-4pa", (void *)100
+printf :    |a0x64a	Return: 6
+ft_printf : |aa	Return: 2
+
+TESTED : "%-6p", (void *)100
+printf :    |0x64  	Return: 6
+ft_printf : |	Return: 0
+
+TESTED : "%-4p", (void *)0x0
+printf :    |0x0 	Return: 4
+ft_printf : |	Return: 0
+
+TESTED : "%-1p", (void *)0x0
+printf :    |0x0	Return: 3
+ft_printf : |	Return: 0
+
+TESTED : "a%-1pa", (void *)0x0
+printf :    |a0x0a	Return: 5
+ft_printf : |aa	Return: 2
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%02d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%03d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "a%03da", 100
+printf :    |a100a	Return: 5
+ft_printf : |aherehere100a	Return: 5
+
+TESTED : "%04d", 100
+printf :    |0100	Return: 4
+ft_printf : |herehere0100	Return: 4
+
+TESTED : "%02d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%03d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%05d", -100
+printf :    |-0100	Return: 5
+ft_printf : |here-here0100	Return: 5
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%2.3d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%3.3d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "a%3.3da", 100
+printf :    |a100a	Return: 5
+ft_printf : |aherehere100a	Return: 5
+
+TESTED : "%4.3d", 100
+printf :    | 100	Return: 4
+ft_printf : |here here100	Return: 4
+
+TESTED : "%2.3d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%3.3d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%4.3d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%2.0d", 100
+printf :    |100	Return: 3
+ft_printf : |hereherehere100	Return: 3
+
+TESTED : "%3.0d", 100
+printf :    |100	Return: 3
+ft_printf : |hereherehere100	Return: 3
+
+TESTED : "a%3.0da", 100
+printf :    |a100a	Return: 5
+ft_printf : |ahereherehere100a	Return: 5
+
+TESTED : "%4.0d", 100
+printf :    | 100	Return: 4
+ft_printf : |herehere here100	Return: 4
+
+TESTED : "%2.0d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-here100	Return: 4
+
+TESTED : "%3.0d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-here100	Return: 4
+
+TESTED : "%4.0d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-here100	Return: 4
+
+TESTED : "%4.d", 100
+printf :    | 100	Return: 4
+ft_printf : |herehere here100	Return: 4
+
+TESTED : "%2.d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-here100	Return: 4
+
+TESTED : "%3.d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-here100	Return: 4
+
+TESTED : "%4.d", -100
+printf :    |-100	Return: 4
+ft_printf : |herehere-here100	Return: 4
+
+TESTED : "%2.7d", 100
+printf :    |0000100	Return: 7
+ft_printf : |herehere0000100	Return: 7
+
+TESTED : "%15.7d", 100
+printf :    |        0000100	Return: 15
+ft_printf : |here        here0000100	Return: 15
+
+TESTED : "a%3.7da", 100
+printf :    |a0000100a	Return: 9
+ft_printf : |aherehere0000100a	Return: 9
+
+TESTED : "%4.7d", 100
+printf :    |0000100	Return: 7
+ft_printf : |herehere0000100	Return: 7
+
+TESTED : "%2.7d", -100
+printf :    |-0000100	Return: 8
+ft_printf : |here-here0000100	Return: 8
+
+TESTED : "%3.7d", -100
+printf :    |-0000100	Return: 8
+ft_printf : |here-here0000100	Return: 8
+
+TESTED : "%15.7d", -100
+printf :    |       -0000100	Return: 15
+ft_printf : |here       -here0000100	Return: 15
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%.3d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%.3d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "a%.3da", 100
+printf :    |a100a	Return: 5
+ft_printf : |aherehere100a	Return: 5
+
+TESTED : "%.3d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%.3d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.3d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.3d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.0d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%.0d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "a%.0da", 100
+printf :    |a100a	Return: 5
+ft_printf : |aherehere100a	Return: 5
+
+TESTED : "%.0d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%.0d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.0d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.0d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.d", 100
+printf :    |100	Return: 3
+ft_printf : |herehere100	Return: 3
+
+TESTED : "%.d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.d", -100
+printf :    |-100	Return: 4
+ft_printf : |here-here100	Return: 4
+
+TESTED : "%.7d", 100
+printf :    |0000100	Return: 7
+ft_printf : |herehere0000100	Return: 7
+
+TESTED : "%5.7d", 100
+printf :    |0000100	Return: 7
+ft_printf : |herehere0000100	Return: 7
+
+TESTED : "a%.7da", 100
+printf :    |a0000100a	Return: 9
+ft_printf : |aherehere0000100a	Return: 9
+
+TESTED : "%.7d", 100
+printf :    |0000100	Return: 7
+ft_printf : |herehere0000100	Return: 7
+
+TESTED : "%.7d", -100
+printf :    |-0000100	Return: 8
+ft_printf : |here-here0000100	Return: 8
+
+TESTED : "%.7d", -100
+printf :    |-0000100	Return: 8
+ft_printf : |here-here0000100	Return: 8
+
+TESTED : "%5.7d", -100
+printf :    |-0000100	Return: 8
+ft_printf : |here-here0000100	Return: 8
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3%", 7,5, "ABC",15,0
+printf :    |TEST TEST 0000%    ABC%00000015       TEST00000000       0000000	%              %%	Return: 82
+ft_printf : |TEST TEST 0000%    ABC%herehere00000015       TEST00000000       0000000	%TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000	%%%15%%.3%TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000	%%%15%%.3%	Return: 184
+
+TESTED : "TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000\t%%%15%%.3% %---15d %00015x", 7,5, "ABC",15,0,20,0x99
+printf :    |TEST TEST 0000%    ABC%00000015       TEST00000000       0000000	%              %% 20              000000000000099	Return: 114
+ft_printf : |TEST TEST 0000%    ABC%herehere00000015       TEST00000000       0000000	%TEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000	%%%15%%.3% %---15d %00015xTEST TEST 0000%%%*.*s%%%-15.8dTEST%-15.8u0000000	%%%15%%.3% %---15d %00015x here20here              000000000000099	Return: 248
+
+TESTED : "***************%*s%*d**************%*u*************", 10, "coucou", 10, 10, -50, 20
+printf :    |***************    coucou        10**************20                                                *************	Return: 112
+ft_printf : |***************    coucouherehere        10**************20                                                *************	Return: 112
+
+TESTED : "ultimate2 %*d %*s %*x %*X %*i %*u\n", 1, 5000, 1, "hey", 10, 54700, 1, 300, 10000, -55, 1, -60
+printf :    |ultimate2 5000 hey       d5ac 12C                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              -55 4294967236
+ft_printf : |ultimate2 herehere5000 hey       d5ac   300
+
+TESTED : "ultimate3 %*.*d %*.*s\n", 1, 50, 5000, 1, 0, "hey"
+printf :    |	Return: 10046
+ft_printf : |	Return: 36
+
+TESTED : "ultimate4 %*.*x %*.*X\n", 1, 50, 5000, 1, 0, 10
+printf :    |ultimate3 00000000000000000000000000000000000000000000005000  
+ft_printf : |ultimate3 herehere00000000000000000000000000000000000000000000005000  
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%09.*d\n", -1, 22
+printf :    |ultimate4 00000000000000000000000000000000000000000000001388 A
+ft_printf : |ultimate4 00000000000000000000000000000000000000000000001388 
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%4d\n", 2
+printf :    |000000022
+ft_printf : |herehere000000022
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%u\n", UINT32_MAX
+printf :    |    4
+ft_printf : |herehere    4
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%5.d", 0
+printf :    |   2
+ft_printf : |herehere   2
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%*.*d\n", 4, 4, 1
+printf :    |   -4
+ft_printf : |herehere   -here4
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%04d", 5
+printf :    |001 
+ft_printf : |herehere001 
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%05.3d", 12
+printf :    |-002
+ft_printf : |here-here002
+
+------------------------------------------------------------------------------------------------
+
+
+TESTED : "%3.0d", 12
+printf :    |       032
+ft_printf : |here       here032
+
+TESTED : "ee%4.2dr w\n", 1
+printf :    |      -032
+ft_printf : |here      -here032
+
+------------------------------------------------------------------------------------------------
+
+
